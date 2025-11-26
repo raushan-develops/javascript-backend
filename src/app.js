@@ -1,6 +1,6 @@
 import express, { urlencoded } from 'express'
 import cors from 'cors'
-import cookiesParser from 'cookies-parser'
+import cookieParser from 'cookie-parser'
 const app = express()
 
 app.use(cors({
@@ -15,7 +15,14 @@ app.use(urlencoded({
 }))
 app.use(express.static("public"))
 
-app.use(cookiesParser())
+app.use(cookieParser())
+
+
+// Import router 
+
+import userRouter from './routes/user.routes.js'
+
+app.use('/api/v1/users', userRouter)
 
 
 export {app}

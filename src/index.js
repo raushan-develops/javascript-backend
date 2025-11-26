@@ -4,8 +4,7 @@ import express from 'express';
 import { DB_NAME } from "./constants.js";
 import connectDB from "./db/index.js";
 
-const app = express()
-
+import { app } from "./app.js";
 
 connectDB()
 .then(()=>{
